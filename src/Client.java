@@ -37,7 +37,8 @@ public class Client {
 
                 line = dataInputStream.readUTF();
 
-                System.out.println("Server answer is:" + line);
+                System.out.println("Server answer is:");
+                System.out.println(line);
                 System.out.println();
             }
         } catch (IOException e) {
