@@ -23,13 +23,13 @@ public class Client {
 
             BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
 
-            String line;
+            String line = "";
 
             System.out.println("Type something");
             System.out.println();
 
             //noinspection InfiniteLoopStatement
-            while (true) {
+            while (!line.equals("exit")) {
                 line = keyboard.readLine();
                 System.out.println("Sending to server...");
 
@@ -41,7 +41,6 @@ public class Client {
                 System.out.println("Server answer is:");
                 System.out.println(line);
                 System.out.println();
-
             }
         } catch (IOException e) {
             e.printStackTrace();
