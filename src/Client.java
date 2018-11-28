@@ -34,10 +34,10 @@ public class Client {
                 line = keyboard.readLine();
                 System.out.println("Sending to server...");
 
-                if (line.equals("exit")) break;
-
                 dataOutputStream.writeUTF(line);
                 dataOutputStream.flush();
+
+                if (line.equals("exit")) break;
 
                 line = dataInputStream.readUTF();
 
