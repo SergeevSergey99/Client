@@ -1,5 +1,6 @@
-import java.net.*;
 import java.io.*;
+import java.net.InetAddress;
+import java.net.Socket;
 
 public class Client {
     public static void main(String[] args) {
@@ -23,15 +24,17 @@ public class Client {
 
             BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
 
-            String line = "";
+            String line;
 
             System.out.println("Type something");
             System.out.println();
 
             //noinspection InfiniteLoopStatement
-            while (!line.equals("exit")) {
+            while (true) {
                 line = keyboard.readLine();
                 System.out.println("Sending to server...");
+
+                if (line.equals("exit")) break;
 
                 dataOutputStream.writeUTF(line);
                 dataOutputStream.flush();
