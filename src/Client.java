@@ -1,6 +1,8 @@
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class Client {
     public static void main(String[] args) {
@@ -39,7 +41,17 @@ public class Client {
 
                 if (line.equals("exit")) break;
 
-                line = dataInputStream.readUTF();
+
+                if (line.equals("download")) {
+                    line = dataInputStream.readUTF();
+
+                    byte[] byteArray = line.getBytes();
+                    File file = new File("text.txt");
+                    boolean bool = file.createNewFile();
+                    System.out.println(bool);
+                    Files.write(Paths.get("text.txt"), byteArray);
+                } else
+                    line = dataInputStream.readUTF();
 
                 System.out.println("Server answer is:");
                 System.out.println(line);
