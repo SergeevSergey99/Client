@@ -1,8 +1,6 @@
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 public class Client {
     public static void main(String[] args) {
@@ -49,7 +47,9 @@ public class Client {
                     File file = new File("text.txt");
                     boolean bool = file.createNewFile();
                     System.out.println(bool);
-                    Files.write(Paths.get("text.txt"), byteArray);
+                    FileOutputStream out = new FileOutputStream("text.txt");
+                    out.write(byteArray);
+                    out.close();
                 } else
                     line = dataInputStream.readUTF();
 
