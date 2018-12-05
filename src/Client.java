@@ -40,14 +40,15 @@ public class Client {
                 if (line.equals("exit")) break;
 
 
-                if (line.equals("download")) {
-                    line = dataInputStream.readUTF();
+                if (line.substring(0, 8).equals("download")) {
+                    String fileName = line.substring(9);
 
+                    line = dataInputStream.readUTF();
                     byte[] byteArray = line.getBytes();
-                    File file = new File("text.txt");
+                    File file = new File(fileName);
                     boolean bool = file.createNewFile();
                     System.out.println(bool);
-                    FileOutputStream out = new FileOutputStream("text.txt");
+                    FileOutputStream out = new FileOutputStream(fileName);
                     out.write(byteArray);
                     out.close();
                 } else
