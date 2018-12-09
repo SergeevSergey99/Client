@@ -39,8 +39,7 @@ public class Client {
 
                 if (line.equals("exit")) break;
 
-
-                if (line.substring(0, 8).equals("download")) {
+                if(line.length()>=10 && line.substring(0, 8).equals("download")) {
                     String fileName = line.substring(9);
 
                     line = dataInputStream.readUTF();
