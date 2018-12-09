@@ -25,6 +25,7 @@ public class Client {
             BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
 
             String line;
+            File dir = new File(".\\files");
 
             System.out.println("Type something");
             System.out.println();
@@ -44,7 +45,7 @@ public class Client {
 
                     line = dataInputStream.readUTF();
                     byte[] byteArray = line.getBytes();
-                    File file = new File(fileName);
+                    File file = new File(dir.getPath()+"\\"+fileName);
                     boolean bool = file.createNewFile();
                     System.out.println(bool);
                     FileOutputStream out = new FileOutputStream(fileName);
